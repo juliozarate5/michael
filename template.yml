@@ -1,0 +1,19 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: >
+  cliente-service
+
+  Template SAM para lambda cliente-service
+
+
+Resources:
+  function:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: build/distributions/Client-0.0.1-SNAPSHOT.zip
+      Handler: co.com.michaelpage.aws.lambda.Clients::handleRequest
+      Runtime: java8
+      Description: Función Java V1
+      MemorySize: 1024
+      Timeout: 19
+      Tracing: Active

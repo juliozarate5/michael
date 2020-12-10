@@ -43,9 +43,10 @@ public class ClientController {
     @ApiOperation(value = "Obtiene los clientes registrados en el sistema",
             response = ClientDto.class,
             responseContainer = "List",
+            produces = "application/json",
             httpMethod = "GET")
-    @GetMapping
-    @ResponseStatus(HttpStatus.CREATED)
+    @GetMapping()
+    @ResponseStatus(HttpStatus.OK)
     public List<ClientDto> getAll() throws RestException{
         try {
             return this.clientService.getAll();
@@ -61,8 +62,9 @@ public class ClientController {
      */
     @ApiOperation(value = "Realiza la creación de un nuevo cliente en el sistema",
             responseContainer = "List",
+            produces = "application/json",
             httpMethod = "POST")
-    @PostMapping
+    @PostMapping(consumes = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
     public void create(@RequestBody @Validated ClientDto clientDto) throws RestException{
         try {
