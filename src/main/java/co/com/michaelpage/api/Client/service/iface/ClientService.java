@@ -6,5 +6,5 @@ package co.com.michaelpage.api.Client.service.iface;
  */
 public interface ClientService {
 
-
+    
 }
