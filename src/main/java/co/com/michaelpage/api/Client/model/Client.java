@@ -8,7 +8,7 @@ import java.io.Serializable;
  * @author Julio Martínez
  */
 @Entity // la convierte en una entity de hibernate
-@Table(name = "client")
+@Table(name = "clients")
 public class Client implements Serializable {
 
     @Id
