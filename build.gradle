@@ -23,11 +23,22 @@ dependencies {
 	compile "io.springfox:springfox-swagger2:2.9.2"
 	compile "io.springfox:springfox-swagger-ui:2.9.2"
 	compile "io.swagger:swagger-annotations:1.5.21"
-	// https://mvnrepository.com/artifact/org.hibernate/hibernate-validator
 	compile group: 'org.hibernate', name: 'hibernate-validator', version: '6.1.6.Final'
-
+	// lambda AWS
+	implementation 'com.amazonaws:aws-lambda-java-core:1.2.1'
+	implementation 'com.amazonaws:aws-lambda-java-events:3.1.0'
+	runtimeOnly 'com.amazonaws:aws-lambda-java-log4j2:1.2.0'
+	implementation 'junit:junit:4.12'
 }
 
 test {
 	useJUnitPlatform()
+}
+// lambda AWS
+task buildZip(type: Zip) {
+	from compileJava
+	from processResources
+	into('lib') {
+		from configurations.runtimeClasspath
+	}
 }
